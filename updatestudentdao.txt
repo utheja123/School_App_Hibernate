@@ -1,0 +1,23 @@
+package com.ty.first;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+public class UpdateUser {
+	public static void main(String[] args) {
+		User u=new User();
+		u.setEmail("vennela@gmail");
+		u.setPassword("456");
+		u.setPhone(984856);
+		u.setGendr("female");
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("vikas");
+		EntityManager em=emf.createEntityManager();
+		EntityTransaction et=em.getTransaction();
+		et.begin();
+		em.persist(u);
+		et.commit();
+	}
+
+}
